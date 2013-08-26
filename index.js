@@ -35,7 +35,7 @@ function row2data(row) {
 
     out.color = delimit(out.areafillrgb) || [];
     out.hierarchy = delimit(out.hierarchykey) || [];
-
+    out.isHeading = out.paragraphstyle.toLowerCase().indexOf("heading") !== -1;
     return out;
 }
 
