@@ -1,4 +1,4 @@
-#!usr/bin/env node
+#!/usr/bin/env node
 
 var argv = require('optimist')
     .alias('i', 'inFile')
