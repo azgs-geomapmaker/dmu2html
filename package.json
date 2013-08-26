@@ -18,6 +18,9 @@
     "Legend",
     "DescriptionOfMapUnits"
   ],
+  "bin": {
+    "dmu2html": "index.js"
+  },
   "author": "Ryan Clark",
   "license": "MIT",
   "bugs": {
