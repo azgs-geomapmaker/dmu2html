@@ -10,6 +10,7 @@ var argv = require('optimist')
     fs = require('fs'),
     csv = require('csv'),
     _ = require('underscore'),
+    request = require('request'),
     headings = {},
     context = { dmu: [] };
 
@@ -56,7 +57,7 @@ csv()
     .on('end', function () {
         context.dmu = _.sortBy(context.dmu, 'hierarchykey');
 
-        request('http://ncgmp09.github.io/dmu2html/template.txt', function (err, content, response) {
-            fs.writeFile(argv.outFile, _.template(content.toString(), context));
+        request('http://ncgmp09.github.io/dmu2html/template.txt', function (err, response, content) {
+            fs.writeFile(argv.outFile, _.template(content, context));
         });
     });
