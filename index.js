@@ -56,7 +56,7 @@ csv()
     .on('end', function () {
         context.dmu = _.sortBy(context.dmu, 'hierarchykey');
 
-        fs.readFile('template.html', function (err, content) {
+        request('http://ncgmp09.github.io/dmu2html/template.txt', function (err, content, response) {
             fs.writeFile(argv.outFile, _.template(content.toString(), context));
         });
     });

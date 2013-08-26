@@ -29,6 +29,7 @@
   "dependencies": {
     "csv": "~0.3.6",
     "optimist": "~0.6.0",
-    "underscore": "~1.5.1"
+    "underscore": "~1.5.1",
+    "request": "~2.27.0"
   }
 }
