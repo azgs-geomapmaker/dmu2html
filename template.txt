@@ -7,7 +7,7 @@
         <style type="text/css">
             @font-face {
                 font-family: "FGDCGeoAge";
-                src: url('fgdcgeoage.tff');
+                src: url('http://ncgmp09.github.io/dmu2html/fgdcgeoage.tff');
             }
 
             * {
