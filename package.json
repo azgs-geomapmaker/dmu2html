@@ -1,6 +1,6 @@
 {
   "name": "dmu2html",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Convert an NCGMP09 DescriptionOfMapUnits table (in CSV format) to an HTML representation of the legend",
   "main": "index.js",
   "scripts": {
