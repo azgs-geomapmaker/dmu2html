@@ -1,0 +1,31 @@
+{
+  "name": "dmu2html",
+  "version": "0.1.0",
+  "description": "Convert an NCGMP09 DescriptionOfMapUnits table (in CSV format) to an HTML representation of the legend",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ncgmp09/dmu2html.git"
+  },
+  "keywords": [
+    "NCGMP09",
+    "Geology",
+    "Map",
+    "Units",
+    "Legend",
+    "DescriptionOfMapUnits"
+  ],
+  "author": "Ryan Clark",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ncgmp09/dmu2html/issues"
+  },
+  "dependencies": {
+    "csv": "~0.3.6",
+    "optimist": "~0.6.0",
+    "underscore": "~1.5.1"
+  }
+}

@@ -1,0 +1,68 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Geologic Map Units</title>
+        <style type="text/css">
+            @font-face {
+                font-family: "FGDCGeoAge";
+                src: url('fgdcgeoage.tff');
+            }
+
+            li {
+                list-style-type: none;
+            }
+
+            svg {
+                width: 72px;
+                height: 72px;
+                position: relative;
+                float: left;
+            }
+
+            .unit-label {
+                font-family: "FGDCGeoAge";
+                position: absolute;
+                width: 60px;
+                height: 60px;
+                line-height: 60px;
+                text-align: center;
+                margin-top: 5px;
+                margin-left: 5px;
+            }
+
+            .description-container {
+                margin-top: 5px;
+            }
+
+            .description-title {
+                position: relative;
+                top: 5px;
+            }
+
+            .clear-float { clear: both; }
+        </style>
+    </head>
+    <body>
+        <ul>
+            <% dmu.forEach(function (unit) { %>
+            <li class="description-container">
+                <svg>
+                    <rect id="<%= unit.label %>-rect"
+                          width="60" height="60"
+                          x="5" y="5"
+                          fill="rgb(<%= unit.color.join(',') %>)"
+                          stroke="#000" stroke-width="2px"></rect>
+                </svg>
+                <div class="unit-label" id="<%= unit.label %>-label"><%= unit.label %></div>
+                <p class="description">
+                    <h3 class="description-title"><%= unit.name %></h3>
+                    <span><%= unit.description %></span>
+                </p>
+                <div class="clear-float"></div>
+            </li>
+            <% }); %>
+        </ul>
+    </body>
+</html>
