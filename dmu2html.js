@@ -1,6 +1,6 @@
 var csv = require('csv'),
     _ = require('underscore'),
-    request = require('request'),
+    jade = require('jade'),
     headings = {},
     context = { dmu: [] };
 
@@ -30,7 +30,7 @@ function row2data(row) {
     return out;
 }
 
-module.exports = function (csvString, templateUrl, callback) {
+module.exports = function (csvString, jadeStr, callback) {
     csv()
         .from(csvString)
 
@@ -47,9 +47,6 @@ module.exports = function (csvString, templateUrl, callback) {
 
         .on('end', function () {
             context.dmu = _.sortBy(context.dmu, 'hierarchykey');
-
-            request(templateUrl, function (err, response, content) {
-                callback(_.template(content, context));
-            });
+            jade.render(jadeStr, _.extend({pretty: true}, context), function (err, html) { callback(html); });
         });
 };
