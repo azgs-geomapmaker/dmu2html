@@ -6,7 +6,7 @@ var argv = require('optimist')
     .alias('o', 'outFile')
     .default('o', 'dmu.html')
     .alias('t', 'templateFile')
-    .default('t', './template.jade')
+    .default('t', 'http://ncgmp09.github.io/dmu2html/template.jade')
     .argv,
 
     fs = require('fs'),
