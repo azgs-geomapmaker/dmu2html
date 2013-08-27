@@ -73,7 +73,7 @@ module.exports = function (csvString, jadeStr, callback) {
                 leftovers = populateStructured(i);
                 i++;
             }
-            console.log(JSON.stringify(context.structured, undefined, 4));
+
             jade.render(jadeStr, _.extend({pretty: true}, context), function (err, html) { callback(html); });
         });
 };
