@@ -2995,10 +2995,15 @@ if (window.FileReader) {
 
         reader.onload = function (e) {
             dmu2html(e.target.result, function (html) {
-                var wnd = window.open("about:blank", "", "_blank");
-                wnd.document.write(html);
                 dropzone.style.borderColor = "#add8e6";
                 dropzone.style.borderStyle = "dashed";
+
+                document.write(html + '<a id="download" href=""><img style="position: absolute; top: 0; right: 0; border: 0;" src="download.png" alt="Download this Document"></a>');
+
+                var file = new Blob([html], {type: 'text/html'});
+                var a = document.getElementById('download');
+                a.href = window.URL.createObjectURL(file);
+                a.download = 'map-units.html';
             });
         };
 
