@@ -27,6 +27,18 @@ function row2data(row) {
     out.color = delimit(out.areafillrgb);
     out.hierarchy = delimit(out.hierarchykey);
     out.isHeading = out.paragraphstyle.toLowerCase().indexOf("heading") !== -1;
+    out.cleanedLabel = out.label
+        .replace('{', 'Cz')
+        .replace(':', 'Pe')
+        .replace('}', 'Mz')
+        .replace('^', 'Tr')
+        .replace('|', 'Pz')
+        .replace('*', 'Pn')
+        .replace('_', 'C')
+        .replace('=', 'pC')
+        .replace('<', 'Pr')
+        .replace('`', 'Y3')
+        .replace('~', 'Y2');
     out.children = {};
 
     return out;
