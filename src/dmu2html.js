@@ -1,6 +1,5 @@
 var csv = require('csv'),
     _ = require('underscore'),
-    jade = require('jade'),
     headings = {},
     context = { dmu: [], structured: {} };
 
@@ -27,18 +26,6 @@ function row2data(row) {
     out.color = delimit(out.areafillrgb);
     out.hierarchy = delimit(out.hierarchykey);
     out.isHeading = out.paragraphstyle.toLowerCase().indexOf("heading") !== -1;
-    out.cleanedLabel = out.label
-        .replace('{', 'Cz')
-        .replace(':', 'Pe')
-        .replace('}', 'Mz')
-        .replace('^', 'Tr')
-        .replace('|', 'Pz')
-        .replace('*', 'Pn')
-        .replace('_', 'C')
-        .replace('=', 'pC')
-        .replace('<', 'Pr')
-        .replace('`', 'Y3')
-        .replace('~', 'Y2');
     out.children = {};
 
     return out;
@@ -60,9 +47,9 @@ function populateStructured(index) {
     return these.length;
 }
 
-module.exports = function (csvString, jadeStr, callback) {
+module.exports = function (csvString, callback) {
     csv()
-        .from(csvString)
+        .from.string(csvString)
 
         .on('record', function (row, index) {
             if (index === 0) {
@@ -86,6 +73,7 @@ module.exports = function (csvString, jadeStr, callback) {
                 i++;
             }
 
-            jade.render(jadeStr, _.extend({pretty: true}, context), function (err, html) { callback(html); });
+            var html = jadeTemplate(context);
+            callback(html);
         });
 };
