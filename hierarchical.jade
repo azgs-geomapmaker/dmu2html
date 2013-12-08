@@ -2,8 +2,8 @@ mixin oneUnit(unit)
     li.description-container
         if !unit.isHeading
             svg
-                rect(id!= unit.label + "-rect", width="60", height="60", x="5", y="5", fill!="rgb(" + unit.color.join(",") + ")", stroke="#000", stroke-width="2px")
-            .unit-label(id!= unit.label + "-label")= unit.label
+                rect(id!= unit.cleanedLabel + "-rect", width="60", height="60", x="5", y="5", fill!="rgb(" + unit.color.join(",") + ")", stroke="#000", stroke-width="2px")
+            .unit-label(id!= unit.cleanedLabel + "-label")= unit.label
             .description
                 h3.description-title= unit.name
                 span= unit.description
